@@ -17,8 +17,8 @@ st.image(banner, use_column_width=True)
 # ── Credits ────────────────────────────────────────────────────────────────────
 st.markdown(
     "<p style='font-size:16px; color:#EDE5E1; text-align:center; margin-top:-8px;'>"
-    "📊 Dashboard guided by <b>Paolo G. Hilado, MSc.</b> &nbsp;|&nbsp; "
-    "⚠️ This is only for Training Purposes."
+    "Paolo G. Hilado, MSc.</b> &nbsp;| Notice: This dashboard is for Training Purposes Only. "
+   
     "</p>",
     unsafe_allow_html=True
 )
@@ -26,13 +26,6 @@ st.markdown(
 # Load REAL dataset
 df = pd.read_csv("child_illiteracy_by_country.csv")
 
-# Title
-st.markdown(
-    f"<p style='font-size:65px; color:#FCC761; font-weight:bold;'>"
-    f"Global Children Illiteracy Dashboard 🙍🏻‍♂️📖🙍🏻‍♀️"
-    f"</p>",
-    unsafe_allow_html=True
-    )
 
 year = st.slider("Select Year", int(df.year.min()), int(df.year.max()), 2010)
 filtered_df = df[df["year"] == year]
