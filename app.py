@@ -17,7 +17,7 @@ st.image(banner, use_column_width=True)
 # ── Credits ────────────────────────────────────────────────────────────────────
 st.markdown(
     "<p style='font-size:16px; color:#EDE5E1; text-align:center; margin-top:-8px;'>"
-    "Leanne Joy P. Libertad;| Notice: This dashboard is for Training Purposes Only. "
+    "Leanne Joy P. Libertad| Notice: This dashboard is for Training Purposes Only. "
    
     "</p>",
     unsafe_allow_html=True
