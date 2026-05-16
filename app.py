@@ -5,26 +5,31 @@ import folium
 from streamlit_folium import st_folium
 from folium.features import GeoJsonTooltip
 import requests
+from PIL import Image
 
 # sets up map to be wide
 st.set_page_config(layout="wide")
 
+# ── Banner ─────────────────────────────────────────────────────────────────────
+banner = Image.open("banner.png")
+st.image(banner, use_column_width=True)
+
+# ── Credits ────────────────────────────────────────────────────────────────────
+st.markdown(
+    "<p style='font-size:16px; color:#EDE5E1; text-align:center; margin-top:-8px;'>"
+    "📊 Dashboard guided by <b>Paolo G. Hilado, MSc.</b> &nbsp;|&nbsp; "
+    "⚠️ This is only for Training Purposes."
+    "</p>",
+    unsafe_allow_html=True
+)
 
 # Load REAL dataset
 df = pd.read_csv("child_illiteracy_by_country.csv")
-
 
 # Title
 st.markdown(
     f"<p style='font-size:65px; color:#FCC761; font-weight:bold;'>"
     f"Global Children Illiteracy Dashboard 🙍🏻‍♂️📖🙍🏻‍♀️"
-    f"</p>",
-    unsafe_allow_html=True
-    )
-
-st.markdown(
-    f"<p style='font-size:26px; color:##EDE5E1'>"
-    f"Paolo G. Hilado MSc. | Notice: This is only for Training Purposes."
     f"</p>",
     unsafe_allow_html=True
     )
@@ -91,7 +96,7 @@ for feature in geo_data["features"]:
 # map setup
 m = folium.Map(
     location=[20, 0],
-    zoom_start=2.5, # how zoom th map is seen in the dashboard
+    zoom_start=2.5,
     tiles="cartodb positron",
     max_bounds=True,
     no_wrap=True
